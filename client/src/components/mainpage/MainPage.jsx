@@ -8,19 +8,14 @@ import {
     faGear,
     faMagnifyingGlass,
   } from "@fortawesome/free-solid-svg-icons";
-import { SearchBar, SearchInput, SearchButton } from '../../styledComponents';
+import MainForm from './MainForm';
+import { SearchBar, SearchInput, SearchButton, TitleDiv, TitleText } from '../../styledComponents';
 const MainPage = () => {
     return (
         <>
-            <SearchBar> 
-                <SearchInput>
-
-                </SearchInput>
-                <SearchButton>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
-
-                </SearchButton>
-            </SearchBar>
+            <TitleDiv><TitleText>Search World Cup Matches</TitleText></TitleDiv>
+            
+            <MainForm></MainForm>
         </>
     );
 };
