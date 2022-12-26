@@ -1,14 +1,13 @@
+import '../../App.css'
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate, Outlet, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faHouseUser,
-    faBell,
-    faGear,
-    faMagnifyingGlass,
+    faFutbol
   } from "@fortawesome/free-solid-svg-icons";
-import { MForm, FormTitleText, FormSection, FormText, FormQuestionDiv,Radios, RadioGroup, MatchCard, StageDate, MatchContents, Scorers, HomeFlag, AwayFlag, ScorerDiv, Scorer, Country, Score, HomeScorer, AwayScorer, GroupDate, Group,Date, NavigateButton, HeaderDiv } from '../../styledComponents';
+
+import { MForm, FormTitleText, FormSection, FormText, FormQuestionDiv,Radios, RadioGroup, MatchCard, StageDate, MatchContents, Scorers, HomeFlag, AwayFlag, ScorerDiv, Scorer, CountryDiv, Score, HomeScorer, AwayScorer, GroupDate, Group,Date, NavigateButton, HeaderDiv, HomeCountry, AwayCountry, BallIconDiv, AwayBallIconDiv } from '../../styledComponents';
 import jQuery from "jquery"
 import $ from "jquery"
 
@@ -81,6 +80,51 @@ const MainForm = () => {
           }
         console.log(rselect)
     }
+
+    const HomeScorerRender = (scorer) =>{
+        let result = <></>
+        if(scorer !== ""){
+            if(Number.isInteger(parseInt(scorer.slice(-2,-1)))){
+                
+                if(parseInt(scorer.slice(-2,-1)) == 2){
+                    result = <HomeScorer>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
+                }
+                else if(parseInt(scorer.slice(-2,-1)) == 3){
+                    result = <HomeScorer>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
+                }
+                else if(parseInt(scorer.slice(-2,-1)) == 4){
+                    result = <HomeScorer>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
+                }
+            }
+            else{
+                result = <HomeScorer>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
+            }
+        }
+        console.log(result)
+        return result
+    }
+    const AwayScorerRender = (scorer) =>{
+        let result = <></>
+        if(scorer !== ""){
+            if(Number.isInteger(parseInt(scorer.slice(-2,-1)))){
+                
+                if(parseInt(scorer.slice(-2,-1)) == 2){
+                    result = <AwayScorer><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
+                }
+                else if(parseInt(scorer.slice(-2,-1)) == 3){
+                    result = <AwayScorer><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
+                }
+                else if(parseInt(scorer.slice(-2,-1)) == 4){
+                    result = <AwayScorer><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
+                }
+            }
+            else{
+                result = <AwayScorer><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
+            }
+        }
+        console.log(result)
+        return result
+    }
     
     return (
         <>
@@ -135,20 +179,27 @@ const MainForm = () => {
                     <Date>{match.local_date}</Date>
                 </GroupDate>
                 <MatchContents>
-                    <Country>{match.home_team_en}</Country>
+                    <CountryDiv><HomeCountry>{match.home_team_en}</HomeCountry></CountryDiv>
                     <HomeFlag src={match.home_flag}></HomeFlag>
                     <Score>{match.home_score}</Score>
                     <Score>:</Score>
                     <Score>{match.away_score}</Score>
                     <AwayFlag src={match.away_flag}></AwayFlag>
-                    <Country>{match.away_team_en}</Country>
+                    <CountryDiv><AwayCountry>{match.away_team_en}</AwayCountry></CountryDiv>
                 </MatchContents>
                 <Scorers>
-                    <ScorerDiv>
-                        {match.home_scorers.map((scorer) => (<HomeScorer>{scorer}</HomeScorer>))}
+                    {/* <ScorerDiv>
+                        {match.home_scorers.map((scorer) => (<HomeScorer>{scorer}{scorer !== "" ? <FontAwesomeIcon style={{marginRight:'10px'}}icon={faFutbol}/> : ''}</HomeScorer>))}
                     </ScorerDiv>
                     <ScorerDiv>
-                        {match.away_scorers.map((scorer) => (<AwayScorer>{scorer}</AwayScorer>))}
+                        {match.away_scorers.map((scorer) => (<AwayScorer>{scorer !== "" ?<FontAwesomeIcon style={{marginRight:'10px'}}icon={faFutbol}/> : ''}{scorer}</AwayScorer>))}
+                    </ScorerDiv> */}
+                    <ScorerDiv>
+                        {match.home_scorers.map((scorer) => (HomeScorerRender(scorer)))}
+                    </ScorerDiv>
+                    <ScorerDiv>
+                        {match.away_scorers.map((scorer) => (AwayScorerRender(scorer)))}
+
                     </ScorerDiv>
                 </Scorers>
 

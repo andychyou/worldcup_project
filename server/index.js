@@ -74,9 +74,12 @@ const firstCharUpper = (keyword) =>{
 }
 
 const dateParser = (date) =>{
-    date = date.split('-')
-    date[2].length === 1 ?  0 :  date[2] = date[2][1]
-    date = date[1]+'/'+date[2]+'/'+date[0]
+    if(date !== ""){
+        date = date.split('-')
+        date[2].length === 1 ?  0 :  date[2] = date[2][1]
+        date = date[1]+'/'+date[2]+'/'+date[0]
+    }
+    
     return date
 }
 

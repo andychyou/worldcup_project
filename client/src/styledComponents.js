@@ -133,7 +133,7 @@ export const NavigateButton = styled.button`
 
 export const MatchCard = styled.div`
   width: 700px;
-  height: 200px;
+  height: 240px;
   margin: 0 auto;
   margin-top : 10px;
   border: 2px solid black;
@@ -143,17 +143,18 @@ export const MatchCard = styled.div`
   
 `
 export const GroupDate = styled.div`
-  height: 20px;
+  margin-top: 10px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
 `
 
 export const Group = styled.div`
-  margin-left: 10px;
+  margin-left: 16px;
 `
 
 export const Date = styled.div`
-  margin-right: 10px;
+  margin-right: 14px;
 `
 
 export const MatchContents = styled.div`
@@ -163,22 +164,32 @@ export const MatchContents = styled.div`
   justify-content: space-between;
 `
 
-export const Country = styled.span`
+export const CountryDiv = styled.div`
   width: 110px;
-  text-align: center;
+`
+
+export const HomeCountry = styled.span`
+  display: block;
+  margin-left: 16px;
+`
+export const AwayCountry = styled.span`
+  display: block;
+  text-align: end;
+  margin-right: 16px;
 `
 
 
 export const Scorers = styled.div`
+  margin-top: 30px;
   height: 100px;
   display: flex;
-  align-items: center;
 `
 
 export const HomeFlag = styled.img`
-  border: 1px solid gray;
   border-radius: 4px;
   margin-right: 15px;
+  box-shadow: 1px 2px 10px 2px rgba(107, 104, 104, 0.5);
+
 `
 
 export const Score = styled.span`
@@ -187,9 +198,9 @@ export const Score = styled.span`
 `
 
 export const AwayFlag = styled.img`
-  border: 1px solid gray;
   border-radius: 4px;
   margin-left: 15px;
+  box-shadow: 1px 2px 10px 2px rgba(107, 104, 104, 0.5);
 `
 
 export const ScorerDiv = styled.div`
@@ -197,17 +208,37 @@ export const ScorerDiv = styled.div`
   font-size: 12px;
 `
 
-export const HomeScorer = styled.span`
-  display: block;
-  text-align: center;
-  margin-left: 68px;
+export const HomeScorer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 230px;
+  margin: 0 auto;
+  margin-left: 90px;
 `
 
-export const AwayScorer = styled.span`
-  display: block;
-  text-align: center;
-  margin-right: 68px;
+export const AwayScorer = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 230px;
+margin: 0 auto;
+margin-right: 90px;
+`
+
+export const BallIconDiv = styled.div`
+width: 70px;
+display:flex;
 
 `
+
+export const AwayBallIconDiv = styled.div`
+width: 70px;
+display:flex;
+justify-content:flex-end;
+`
+
+
+
 
 
