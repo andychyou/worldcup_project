@@ -5,13 +5,7 @@ app.use(cors())
 app.use(express.json())
 const axios = require("axios")
 const cheerio = require("cheerio")
-// const mongoose = require("mongoose")
 
-// mongoose.connect("mongodb+srv://andychyou:asdf1234@cluster0.fvmdzjv.mongodb.net/?retryWrites=true&w=majority",{
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-// }).then(()=>{console.log("MongoDB connected")},
-// err=>console.log(err))
 var MongoClient = require('mongodb').MongoClient;
 var db_url = "mongodb+srv://andychyou:asdf1234@cluster0.fvmdzjv.mongodb.net/?retryWrites=true&w=majority";
 
@@ -98,10 +92,8 @@ const find_match = async (client_request) =>{
     Scorer !== "" ? search_this.push({ $or : [{home_scorers : new RegExp(Scorer)}, {away_scorers: new RegExp(Scorer)}]}) : 0
     Round !== "" ? search_this.push({group : Round}) : 0
     MatchDate !== "" ? search_this.push({local_date : new RegExp(MatchDate)}) : 0
-    // MatchDate !== "" ? search_this.push({local_date : new RegExp(Round)}) : 0
     const result = await dbo.collection('matches').find({$and: search_this}).toArray();
-    
-    
+     
     db.close()
     return result
 }

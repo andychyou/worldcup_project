@@ -1,0 +1,43 @@
+//프로젝트 실행 방법
+client 폴더에서 
+1. npm install 
+2. npm start -> 프론트엔드 실행
+server 폴더에서
+1. npm install
+2. npm run dev -> 백엔드 실행
+
+
+//프로젝트 구동 환경
+
+로컬 컴퓨터 OS : Windows 11 Education 64비트 (10.0, 빌드 22621)
+사용 IDE : Visual Studio Code ver. 1.74.2
+브라우저 : Chrome 버전 108.0.5359.125(공식 빌드) (64비트)
+
+//프로젝트 제작 환경
+
+Frontend : React 
+Backend : Nodejs v18.12.1 Express v4.18.0
+DB : Mongodb Atlas
+npm : v8.19.2
+client@0.1.0 
+├── @emotion/react@11.10.5
+├── @emotion/styled@11.10.5
+├── @fortawesome/free-solid-svg-icons@6.2.1
+├── @fortawesome/react-fontawesome@0.2.0
+├── @mui/material@5.11.2
+├── @testing-library/jest-dom@5.16.5
+├── @testing-library/react@13.4.0
+├── @testing-library/user-event@13.5.0
+├── jquery@3.6.3
+├── react-dom@18.2.0
+├── react-router-dom@6.6.1
+├── react-scripts@5.0.1
+├── react@18.2.0
+├── styled-components@5.3.6
+└── web-vitals@2.1.4
+server@1.0.0 
+├── axios@1.2.1
+├── cheerio@1.0.0-rc.12
+├── cors@2.8.5
+├── express@4.18.2
+└── mongodb@4.13.0
