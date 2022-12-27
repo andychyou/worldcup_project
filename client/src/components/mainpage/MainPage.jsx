@@ -132,11 +132,11 @@ const MainPage = () => {
             </HeaderDiv>
             <MForm id="mainform">
                 <FormQuestionDiv>
-                    <FormText>Country : </FormText> <TextField style={{width:'150px'}}InputProps={{style:{fontSize:'12px'}}} InputLabelProps={{style:{fontSize:'12px',marginLeft:'3px'}}} id='country' type='text' name='country' placeholder='ex. Argentina'  variant="outlined" size="small"/>
+                    <FormText>Country : </FormText> <TextField style={{width:'150px'}}InputProps={{style:{fontSize:'12px'}}} InputLabelProps={{style:{fontSize:'12px',marginLeft:'3px'}}} id='country' type='text' name='country' placeholder='ex. Argentina'  variant="outlined" size="small" autoComplete='off'/>
                 </FormQuestionDiv>              
                 
                 <FormQuestionDiv>
-                    <FormText>Scorer : </FormText> <TextField style={{width:'150px'}}InputProps={{style:{fontSize:'12px'}}} InputLabelProps={{style:{fontSize:'12px',marginLeft:'3px'}}}  id='scorer' type='text' name='scorer' placeholder='ex. Messi' variant="outlined" size="small"/>
+                    <FormText>Scorer : </FormText> <TextField style={{width:'150px'}}InputProps={{style:{fontSize:'12px'}}} InputLabelProps={{style:{fontSize:'12px',marginLeft:'3px'}}}  id='scorer' type='text' name='scorer' placeholder='ex. Messi' variant="outlined" size="small" autoComplete='off'/>
                 </FormQuestionDiv> 
                 <Radios>
                     <FormText style={{display:'block'}}>Groups</FormText>

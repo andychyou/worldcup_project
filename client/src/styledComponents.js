@@ -72,6 +72,7 @@ export const MForm = styled.form`
 background-color: #e0fdfc;
   height: 400px;
   margin: 0 auto;
+  margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: 1px 2px 10px 2px rgba(107, 104, 104, 0.3);
 
@@ -135,7 +136,7 @@ border: 1px solid #ffe2e2;
   width: 700px;
   height: 100px;
   margin: 0 auto;
-  margin-top: 8px;
+  margin-bottom: 10px;
   border-radius: 5px;
   display: flex;
 `
@@ -173,7 +174,7 @@ export const MatchCard = styled.div`
   width: 700px;
   height: 220px;
   margin: 0 auto;
-  margin-top : 10px;
+  margin-bottom : 10px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;

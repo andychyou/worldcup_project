@@ -47,7 +47,7 @@ const News = () => {
             </HeaderDiv>
             <SearchBar> 
                 <InputAndButtonDiv>
-                <SearchInput onKeyDown={InputEnter} id="keyword" placeholder='Type Keyword'>
+                <SearchInput onKeyDown={InputEnter} id="keyword" placeholder='Type Keyword' autoComplete='off'>
 
                 </SearchInput>
                 <SearchButton onClick={GetNews} variant="contained">
