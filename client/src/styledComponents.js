@@ -3,17 +3,24 @@ import styled, { css } from "styled-components";
 //MainPage
 export const TitleDiv = styled.div`
   height: 50px;
+  background-color: #550065;
+  display: flex;
+
 `
 
-export const TitleText = styled.h2`
+export const TitleText = styled.div`
   color: black;
-  text-align: center;
+  margin: 0 auto;
+  align-self: center;
+  font-size: 24px;
+  color: white;
 `
 
 export const SearchBar = styled.div`
-    width: 420px;
+    width: 430px;
     height: 80px;
     margin: 0 auto;
+    margin-top: 10px;
 `;
 
 
@@ -28,23 +35,29 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchButton = styled.button`
-  width: 40px;
-  height: 35px;
+  width: 42px;
+  height: 39px;
   border: none;
   border-radius: 5px;
-  background-color: gray;
+  color: rgb(133 41 127);
   float: right;
   display: inline-block;
   cursor: pointer;
   transition: 0.45s;
-  border: 2px solid white;
+  border: 2px solid   rgb(133 41 127);
+  
 
   &:hover {
     // background-color: #5fb352;
-    background-color: rgba(255, 179, 0, 1);
-    border-color: rgba(255, 179, 0, 1);
+    background-color: rgb(171, 3, 161);
     color: white;
   }
+`;
+
+export const InputAndButtonDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 
@@ -52,26 +65,37 @@ export const SearchButton = styled.button`
 export const FormSection = styled.section`
   width: 700px;
   margin: 0 auto;
+  margin-top: 20px;
+
 `
 export const MForm = styled.form`
-  height: 300px;
+background-color: #e0fdfc;
+  height: 400px;
   margin: 0 auto;
-  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 2px 10px 2px rgba(107, 104, 104, 0.3);
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 `;
 export const HeaderDiv = styled.div`
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 `;
 
 export const FormTitleText = styled.span`
   color: black;
+  font-size: 20px;
 `
 
 export const FormText = styled.span`
   color: black;
   font-size: 16px;
+  margin-top: 2px;
 `
 
 export const FormQuestionDiv = styled.div`
@@ -83,7 +107,7 @@ export const FormQuestionDiv = styled.div`
 
 export const Radios = styled.div`
   width: 400px;
-  height: 100px;
+  height: 60px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -98,21 +122,34 @@ export const RadioGroup = styled.div`
 
 
 //news component
+export const NewsSection = styled.section`
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 20px;
+`
+
 export const NewsCard = styled.div`
+font-family: 'Source Sans Pro', sans-serif;
+box-shadow: 1px 2px 10px 2px rgba(107, 104, 104, 0.16);
+border: 1px solid #ffe2e2;
   width: 700px;
   height: 100px;
   margin: 0 auto;
   margin-top: 8px;
-  border: 1px solid black;
   border-radius: 5px;
   display: flex;
 `
 export const NewsArticleDiv = styled.div`
   width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 `
 
 export const NewsDetails = styled.div`
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: 5px;
+
 `
 
 export const NewsImg = styled.img`
@@ -120,41 +157,46 @@ export const NewsImg = styled.img`
   height: 90px;
   margin: 0 auto;
   align-self: center;
+  border-radius: 5px;
 `
 
 export const NavigateButton = styled.button`
   width: 100px;
   height: 26px;
   float: right;
-  margin-top: 5px;  
 `
 
 //MatchCards
 
 export const MatchCard = styled.div`
+  overflow: hidden;
   width: 700px;
-  height: 240px;
+  height: 220px;
   margin: 0 auto;
   margin-top : 10px;
-  border: 2px solid black;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  
+  box-shadow: 1px 2px 10px 2px rgba(107, 104, 104, 0.3);
+  background-color: #e0fdfc;
 `
 export const GroupDate = styled.div`
-  margin-top: 10px;
-  height: 50px;
   display: flex;
   justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
 `
 
 export const Group = styled.div`
   margin-left: 16px;
+  color: white;
+  font-size: 20px;
 `
 
 export const Date = styled.div`
   margin-right: 14px;
+  color: white;
+  font-size: 20px;
 `
 
 export const MatchContents = styled.div`
@@ -195,6 +237,8 @@ export const HomeFlag = styled.img`
 export const Score = styled.span`
   text-align: center;
   align-self: center;
+  font-weight: bold;
+  font-size: 24px;
 `
 
 export const AwayFlag = styled.img`

@@ -86,6 +86,7 @@ const dateParser = (date) =>{
 
 const find_match = async (client_request) =>{
     let {Country, Scorer, Round, MatchDate} = client_request
+    if(Country === "" && Scorer === "" && Round === "" && MatchDate === "") return []
     Country = firstCharUpper(Country)
     Scorer = firstCharUpper(Scorer)  
     MatchDate = dateParser(MatchDate)
@@ -104,7 +105,6 @@ const find_match = async (client_request) =>{
     db.close()
     return result
 }
-
 
 
 

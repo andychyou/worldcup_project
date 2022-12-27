@@ -6,10 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faFutbol
   } from "@fortawesome/free-solid-svg-icons";
-
-import { MForm, FormTitleText, FormSection, FormText, FormQuestionDiv,Radios, RadioGroup, MatchCard, StageDate, MatchContents, Scorers, HomeFlag, AwayFlag, ScorerDiv, Scorer, CountryDiv, Score, HomeScorer, AwayScorer, GroupDate, Group,Date, NavigateButton, HeaderDiv, HomeCountry, AwayCountry, BallIconDiv, AwayBallIconDiv } from '../../styledComponents';
+import { TextField, Button } from '@mui/material';
+import { SearchButton, MForm, FormTitleText, FormSection, FormText, FormQuestionDiv,Radios, RadioGroup, MatchCard, StageDate, MatchContents, Scorers, HomeFlag, AwayFlag, ScorerDiv, Scorer, CountryDiv, Score, HomeScorer, AwayScorer, GroupDate, Group,Date, NavigateButton, HeaderDiv, HomeCountry, AwayCountry, BallIconDiv, AwayBallIconDiv } from '../../styledComponents';
 import jQuery from "jquery"
 import $ from "jquery"
+import { fontWeight } from '@mui/system';
 
 const MainForm = () => {
     const navigate = useNavigate()
@@ -69,60 +70,55 @@ const MainForm = () => {
     }
 
     const CheckRadio = (e) =>{
-        console.log('ddd')
         if (e.target.value === rselect) {
             setRselect("");
-            console.log($("input[name='round']"))
             $("input[name='round']").prop('checked', false)
           } else {
             setRselect(e.target.value);
             e.target.checked = true
           }
-        console.log(rselect)
     }
 
-    const HomeScorerRender = (scorer) =>{
-        let result = <></>
+    const HomeScorerRender = (scorer,i) =>{
+        let result 
         if(scorer !== ""){
             if(Number.isInteger(parseInt(scorer.slice(-2,-1)))){
                 
                 if(parseInt(scorer.slice(-2,-1)) == 2){
-                    result = <HomeScorer>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
+                    result = <HomeScorer key={i}>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
                 }
                 else if(parseInt(scorer.slice(-2,-1)) == 3){
-                    result = <HomeScorer>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
+                    result = <HomeScorer key={i}>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
                 }
                 else if(parseInt(scorer.slice(-2,-1)) == 4){
-                    result = <HomeScorer>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
+                    result = <HomeScorer key={i}>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
                 }
             }
             else{
-                result = <HomeScorer>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
+                result = <HomeScorer key={i}>{scorer}<BallIconDiv><FontAwesomeIcon style={{marginRight:"5px"}}icon={faFutbol}/></BallIconDiv></HomeScorer>
             }
         }
-        console.log(result)
         return result
     }
-    const AwayScorerRender = (scorer) =>{
-        let result = <></>
+    const AwayScorerRender = (scorer,i) =>{
+        let result 
         if(scorer !== ""){
             if(Number.isInteger(parseInt(scorer.slice(-2,-1)))){
                 
                 if(parseInt(scorer.slice(-2,-1)) == 2){
-                    result = <AwayScorer><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
+                    result = <AwayScorer key={i}><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
                 }
                 else if(parseInt(scorer.slice(-2,-1)) == 3){
-                    result = <AwayScorer><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
+                    result = <AwayScorer key={i}><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
                 }
                 else if(parseInt(scorer.slice(-2,-1)) == 4){
-                    result = <AwayScorer><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
+                    result = <AwayScorer key={i}><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
                 }
             }
             else{
-                result = <AwayScorer><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
+                result = <AwayScorer key={i}><AwayBallIconDiv><FontAwesomeIcon style={{marginLeft:"5px"}}icon={faFutbol}/></AwayBallIconDiv>{scorer}</AwayScorer>
             }
         }
-        console.log(result)
         return result
     }
     
@@ -132,15 +128,15 @@ const MainForm = () => {
         <FormSection>
             <HeaderDiv>
                 <FormTitleText>Find By Options</FormTitleText>
-                <NavigateButton onClick={()=>{navigate('/news')}}>Sports News</NavigateButton>
+                <Button style={{backgroundColor:'rgb(171 3 161)',width:'140px'}}onClick={()=>{navigate('/news')}} variant="contained">Sports News</Button>
             </HeaderDiv>
             <MForm id="mainform">
                 <FormQuestionDiv>
-                    <FormText>Country : </FormText> <input id='country' type='text' name='country' placeholder='ex. Argentina'></input>
+                    <FormText>Country : </FormText> <TextField style={{width:'150px'}}InputProps={{style:{fontSize:'12px'}}} InputLabelProps={{style:{fontSize:'12px',marginLeft:'3px'}}} id='country' type='text' name='country' placeholder='ex. Argentina'  variant="outlined" size="small"/>
                 </FormQuestionDiv>              
                 
                 <FormQuestionDiv>
-                    <FormText>Scorer : </FormText> <input id='scorer' type='text' name='scorer' placeholder='ex. Messi'></input>
+                    <FormText>Scorer : </FormText> <TextField style={{width:'150px'}}InputProps={{style:{fontSize:'12px'}}} InputLabelProps={{style:{fontSize:'12px',marginLeft:'3px'}}}  id='scorer' type='text' name='scorer' placeholder='ex. Messi' variant="outlined" size="small"/>
                 </FormQuestionDiv> 
                 <Radios>
                     <FormText style={{display:'block'}}>Groups</FormText>
@@ -154,6 +150,8 @@ const MainForm = () => {
                     <input onClick={CheckRadio}type='radio' name="round" value="G"></input><label>G</label>
                     <input onClick={CheckRadio}type='radio' name="round" value="H"></input><label>H</label>
                     </RadioGroup>
+                </Radios>
+                <Radios>
                     <FormText style={{display:'block'}}>Rounds</FormText>
                     <RadioGroup>
                     <input onClick={CheckRadio}type='radio' name="round" value="R16"></input><label>R16</label>
@@ -164,41 +162,41 @@ const MainForm = () => {
                     </RadioGroup>
                 </Radios>
                 <FormQuestionDiv>        
-                    <FormText>Match Date : </FormText> <input id='date' type='date' name='date'></input>
+                    <FormText>Match Date : </FormText> <input id='date' type='date' name='date' ></input>
                 </FormQuestionDiv>
-                <FormQuestionDiv>        
-                    <button onClick={GetMaches} >Find</button>
+                <FormQuestionDiv style={{justifyContent:'flex-end'}}>        
+                    {/* <Button style={{color:'blue'}}onClick={GetMaches} variant='outlined'>Find</Button> */}
+                    <SearchButton style={{width:'80px', heigth:'10px'}}onClick={GetMaches} >
+                    FIND
+                    </SearchButton>
                 </FormQuestionDiv>
             </MForm>
         {/* matchcard 렌더링 */}
 
-            {matchdata.map((match) => (
-            <MatchCard>
+            {matchdata.map((match, i) => (
+            <MatchCard key={i}>
+                <div style={{backgroundColor:'rgb(171, 3, 161)'}}>
                 <GroupDate>
                     <Group>{match.group}</Group>
                     <Date>{match.local_date}</Date>
                 </GroupDate>
+                </div>
                 <MatchContents>
                     <CountryDiv><HomeCountry>{match.home_team_en}</HomeCountry></CountryDiv>
                     <HomeFlag src={match.home_flag}></HomeFlag>
                     <Score>{match.home_score}</Score>
-                    <Score>:</Score>
+                    <Score style={{fontSize:'16px'}}>:</Score>
                     <Score>{match.away_score}</Score>
                     <AwayFlag src={match.away_flag}></AwayFlag>
                     <CountryDiv><AwayCountry>{match.away_team_en}</AwayCountry></CountryDiv>
                 </MatchContents>
                 <Scorers>
-                    {/* <ScorerDiv>
-                        {match.home_scorers.map((scorer) => (<HomeScorer>{scorer}{scorer !== "" ? <FontAwesomeIcon style={{marginRight:'10px'}}icon={faFutbol}/> : ''}</HomeScorer>))}
+                    
+                    <ScorerDiv>
+                        {match.home_scorers.map((scorer,i) => (HomeScorerRender(scorer,i)))}
                     </ScorerDiv>
                     <ScorerDiv>
-                        {match.away_scorers.map((scorer) => (<AwayScorer>{scorer !== "" ?<FontAwesomeIcon style={{marginRight:'10px'}}icon={faFutbol}/> : ''}{scorer}</AwayScorer>))}
-                    </ScorerDiv> */}
-                    <ScorerDiv>
-                        {match.home_scorers.map((scorer) => (HomeScorerRender(scorer)))}
-                    </ScorerDiv>
-                    <ScorerDiv>
-                        {match.away_scorers.map((scorer) => (AwayScorerRender(scorer)))}
+                        {match.away_scorers.map((scorer,i) => (AwayScorerRender(scorer,i)))}
 
                     </ScorerDiv>
                 </Scorers>

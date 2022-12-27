@@ -3,14 +3,13 @@ import { useState, useEffect } from 'react';
 import { useNavigate, Outlet, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faHouseUser,
-    faBell,
-    faGear,
     faMagnifyingGlass,
   } from "@fortawesome/free-solid-svg-icons";
-import {NewsCard, NewsArticleDiv, NewsDetails, NewsImg, SearchBar, SearchInput, SearchButton, TitleDiv, TitleText,  NavigateButton } from '../../styledComponents';
+import {InputAndButtonDiv, FormTitleText, NewsCard, NewsArticleDiv, NewsDetails, NewsImg, SearchBar, SearchInput, SearchButton, TitleDiv, TitleText,  NavigateButton, HeaderDiv, NewsSection } from '../../styledComponents';
+import { Button } from '@mui/material';
 const News = () => {
     const [newsdata, setNewsdata] = useState([])
+    
     const GetNews = async (e) =>{
         e.preventDefault()
         let keyword = document.getElementById('keyword').value
@@ -29,6 +28,10 @@ const News = () => {
         console.log(d.news_data)
         setNewsdata(d.news_data)
     }
+    const InputEnter = (e) =>{
+        if(e.key == 'Enter')
+            GetNews(e)
+    }
     const navigate = useNavigate();
 
     const GoMain = () => {
@@ -36,26 +39,32 @@ const News = () => {
     };
     return (
         <>
-            <TitleDiv><TitleText>Search Sports News</TitleText></TitleDiv>
+        <TitleDiv><TitleText>Search World Cup Matches</TitleText></TitleDiv>
+
+        <NewsSection>
+            <HeaderDiv>
+                <FormTitleText>Search Sports News</FormTitleText>
+                <Button style={{backgroundColor:'rgb(171 3 161)', width:'140px'}} onClick={GoMain} variant="contained">Back To Main</Button>
+            </HeaderDiv>
             <SearchBar> 
-                <SearchInput id="keyword">
+                <InputAndButtonDiv>
+                <SearchInput onKeyDown={InputEnter} id="keyword" placeholder='Type Keyword'>
 
                 </SearchInput>
-                <SearchButton onClick={GetNews}>
+                <SearchButton onClick={GetNews} variant="contained">
                     <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
                     
                 </SearchButton>
-                <NavigateButton onClick={GoMain}>
-                    Back To Main
-                </NavigateButton>
+                </InputAndButtonDiv>
             </SearchBar>
             
-            {newsdata.map((news) =>(<NewsCard><NewsArticleDiv>
-            <a href={news.news_href}>{news.news_title}</a>
+            {newsdata.map((news, i) =>(<NewsCard key={i}><NewsArticleDiv>
+            <a target="_blank" href={news.news_href}>{news.news_title}</a>
             <NewsDetails>{news.news_details}</NewsDetails>
             </NewsArticleDiv>
             <NewsImg src={news.news_img}></NewsImg>
             </NewsCard>))} 
+        </NewsSection>
         </>
     );
 };
