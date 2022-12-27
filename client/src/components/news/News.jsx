@@ -39,7 +39,6 @@ const News = () => {
     };
     return (
         <>
-        <TitleDiv><TitleText>Search World Cup Matches</TitleText></TitleDiv>
 
         <NewsSection>
             <HeaderDiv>
