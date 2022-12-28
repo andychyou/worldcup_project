@@ -4,4 +4,4 @@
 client 폴더 -> npm install -> npm start
 
 ## 2. 백엔드 실행
-server 폴더 -> npm install -> npm run dev
+server 폴더 -> npm install, npm install -g nodemon -> npm run dev
